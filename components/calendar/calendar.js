@@ -1799,6 +1799,11 @@ var Calendar = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [Array])
+    ],  Calendar.prototype, "enabledDates", null);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
     ], Calendar.prototype, "disabledDays", null);
     __decorate([
         core_1.Input(),
