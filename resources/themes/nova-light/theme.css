@@ -889,7 +889,7 @@ body .ui-datepicker .ui-datepicker-header .ui-datepicker-title select {
   margin-bottom: 0;
 }
 body .ui-datepicker table {
-  font-size: 14px;
+  font-size: .8em;
   margin: 0.857em 0 0 0;
 }
 body .ui-datepicker table th {

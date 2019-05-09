@@ -120,6 +120,7 @@ export declare class Calendar implements OnInit, OnDestroy, ControlValueAccessor
     minDate: Date;
     maxDate: Date;
     disabledDates: Date[];
+    enabledDates: Date[];
     disabledDays: number[];
     showTime: boolean;
     locale: LocaleSettings;
