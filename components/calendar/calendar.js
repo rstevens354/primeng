@@ -124,6 +124,19 @@ var Calendar = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+	Object.defineProperty(Calendar.prototype, "enabledDates", {
+        get: function () {
+            return this._enabledDates;
+        },
+        set: function (enabledDates) {
+            this._enabledDates = enabledDates;
+            if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
+                this.createMonths(this.currentMonth, this.currentYear);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Calendar.prototype, "disabledDays", {
         get: function () {
             return this._disabledDays;
@@ -648,8 +661,19 @@ var Calendar = /** @class */ (function () {
         if (this.disabledDates) {
             validDate = !this.isDateDisabled(day, month, year);
         }
+		if (this.enabledDates) {
+            validDate = this.isDateEnabled(day,month,year);
+        }
         if (this.disabledDays) {
             validDay = !this.isDayDisabled(day, month, year);
+        } else {
+            if (this.disabledDates) {
+               validDate = !this.isDateDisabled(day,month,year);
+            }
+
+            if (this.disabledDays) {
+               validDay = !this.isDayDisabled(day,month,year)
+            }
         }
         return validMin && validMax && validDate && validDay;
     };
@@ -658,6 +682,17 @@ var Calendar = /** @class */ (function () {
             for (var _i = 0, _a = this.disabledDates; _i < _a.length; _i++) {
                 var disabledDate = _a[_i];
                 if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    };
+	Calendar.prototype.isDateEnabled = function (day, month, year) {
+        if (this.enabledDates) {
+            for (var _i = 0, _a = this.enabledDates; _i < _a.length; _i++) {
+                var enabledDate = _a[_i];
+                if (enabledDate.getFullYear() === year && enabledDate.getMonth() === month && enabledDate.getDate() === day) {
                     return true;
                 }
             }

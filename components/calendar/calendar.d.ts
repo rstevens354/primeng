@@ -111,6 +111,7 @@ export declare class Calendar implements OnInit, OnDestroy, ControlValueAccessor
     preventDocumentListener: boolean;
     dateTemplate: TemplateRef<any>;
     _disabledDates: Array<Date>;
+    _enabledDates: Array<Date>;
     _disabledDays: Array<number>;
     selectElement: any;
     todayElement: any;
