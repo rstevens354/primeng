@@ -1074,6 +1074,19 @@
 						}
 					}]
 				}],
+				"bookedDates": [{
+					"__symbolic": "property",
+					"decorators": [{
+						"__symbolic": "call",
+						"expression": {
+							"__symbolic": "reference",
+							"module": "@angular/core",
+							"name": "Input",
+							"line": 449,
+							"character": 5
+						}
+					}]
+				}],
 				"disabledDays": [{
 					"__symbolic": "property",
 					"decorators": [{
@@ -1238,6 +1251,9 @@
 					"__symbolic": "method"
 				}],
 				"isDateDisabled": [{
+					"__symbolic": "method"
+				}],
+				"isDateBooked": [{
 					"__symbolic": "method"
 				}],
 				"isDayDisabled": [{

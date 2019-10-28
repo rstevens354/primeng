@@ -112,6 +112,7 @@ export declare class Calendar implements OnInit, OnDestroy, ControlValueAccessor
     dateTemplate: TemplateRef<any>;
     _disabledDates: Array<Date>;
     _enabledDates: Array<Date>;
+    _bookededDates: Array<Date>;
     _disabledDays: Array<number>;
     selectElement: any;
     todayElement: any;
@@ -121,6 +122,7 @@ export declare class Calendar implements OnInit, OnDestroy, ControlValueAccessor
     maxDate: Date;
     disabledDates: Date[];
     enabledDates: Date[];
+    bookedDates: Date[];
     disabledDays: number[];
     showTime: boolean;
     locale: LocaleSettings;
@@ -170,6 +172,7 @@ export declare class Calendar implements OnInit, OnDestroy, ControlValueAccessor
     isToday(today: any, day: any, month: any, year: any): boolean;
     isSelectable(day: any, month: any, year: any, otherMonth: any): boolean;
     isDateDisabled(day: number, month: number, year: number): boolean;
+    isDateBooked(day: number, month: number, year: number): boolean;
     isDayDisabled(day: number, month: number, year: number): boolean;
     onInputFocus(event: Event): void;
     onInputClick(event: Event): void;
