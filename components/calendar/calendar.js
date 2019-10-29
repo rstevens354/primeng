@@ -37,6 +37,7 @@ var Calendar = /** @class */ (function () {
         this.stepSecond = 1;
         this.showSeconds = false;
         this.showOnFocus = true;
+		this.showBookingDetails = false;
         this.dataType = 'date';
         this.selectionMode = 'single';
         this.todayButtonStyleClass = 'ui-button-secondary';
@@ -401,6 +402,7 @@ var Calendar = /** @class */ (function () {
             this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
         }
     };
+
     Calendar.prototype.onDateSelect = function (event, dateMeta) {
 
 		console.log(dateMeta);
@@ -442,6 +444,7 @@ var Calendar = /** @class */ (function () {
         this.updateInputfield();
         event.preventDefault();
     };
+
     Calendar.prototype.shouldSelectDate = function (dateMeta) {
         if (this.isMultipleSelection())
             return !this.maxDateCount || !this.value || this.maxDateCount > this.value.length;
@@ -667,8 +670,17 @@ var Calendar = /** @class */ (function () {
 		console.log('whaaat');
 
 		if (this.bookedDates) {
-			//console.log(day, month, year);
-            //validDate = this.isDateBooked(day,month,year);
+
+			console.log(this.showBookingDetails);
+
+			if (this.showBookingDetails) {
+				this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
+				console.log('a', day, month, year);
+            } else {
+				this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: false });
+				console.log('b', day, month, year);
+			}
+			//validDate = this.isDateBooked(day,month,year);
         }
 
 	};
